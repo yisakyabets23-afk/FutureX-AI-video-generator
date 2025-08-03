@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Creative Suite - Text to Video & Image</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>AI Creative Suite</h1>
+        <p>Bring your ideas to life with the power of generative AI</p>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'text-to-image')">Text to Image</button>
+            <button class="tab-link" onclick="openTab(event, 'text-to-video')">Text to Video</button>
+            <button class="tab-link" onclick="openTab(event, 'img-to-video')">Image + Text to Video</button>
+        </div>
+
+        <div id="text-to-image" class="tab-content active">
+            <h2>Image Generator</h2>
+            <form id="image-form" class="generator-form">
+                <textarea id="image-prompt" placeholder="e.g., A futuristic city skyline at sunset, cyberpunk style, hyperrealistic" required></textarea>
+                <button type="submit">Generate Image</button>
+            </form>
+        </div>
+
+        <div id="text-to-video" class="tab-content">
+            <h2>Video Generator from Text</h2>
+            <form id="video-form" class="generator-form">
+                <textarea id="video-prompt" placeholder="e.g., A majestic eagle soaring through snowy mountains, cinematic 4K" required></textarea>
+                <button type="submit">Generate Video</button>
+            </form>
+        </div>
+
+        <div id="img-to-video" class="tab-content">
+            <h2>Video Generator from Image + Text</h2>
+            <form id="img-video-form" class="generator-form">
+                <div class="image-upload-wrapper">
+                    <input type="file" id="image-upload" accept="image/*" required>
+                    <label for="image-upload" class="upload-label">Click to Upload Starting Image</label>
+                    <img id="image-preview" src="#" alt="Image Preview" style="display:none;"/>
+                </div>
+                <textarea id="img-video-prompt" placeholder="Describe the motion, e.g., pan left slowly, subtle wind blowing through the trees" required></textarea>
+                <button type="submit">Generate Video</button>
+            </form>
+        </div>
+
+        <div class="results-container">
+            <h3>Your Creation</h3>
+            <div id="loading-spinner" class="spinner" style="display: none;"></div>
+            <div id="result-output">
+                <p class="placeholder-text">Your generated content will appear here...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI Creative Suite. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
